@@ -4,7 +4,7 @@
 ### 1.2.1 파이썬 버전
 3.10.10
 ## 1.3 파이썬 인터프리터
-![python_version](python_version.png)
+![python_version](images/python_version.png)
 ### 1.3.1 산술 연산
 ```python
 >>> 1 - 2
@@ -133,9 +133,9 @@ Hello cat!
 ```
 ## 1.4 파이썬 스크립트 파일
 ### 1.4.1 파일로 저장하기
-![python_script_file](python_script_file.png)
+![python_script_file](images/python_script_file.png)
 ### 1.4.2 클래스
-![class](class.png)
+![class](images/class.png)
 ## 1.5 넘파이
 ### 1.5.1 넘파이 가져오기
 ```python
@@ -238,11 +238,11 @@ array([51, 55, 19])
 ```
 ## 1.6 matplotlib
 ### 1.6.1 단순한 그래프 그리기
-![sin_graph](sin_graph.png)
+![sin_graph](images/sin_graph.png)
 ### 1.6.2 pyplot의 기능
-![sin_cos_graph](sin_cos_graph.png)
+![sin_cos_graph](images/sin_cos_graph.png)
 ### 1.6.3 이미지 표시하기
-![cactus](cactus.png)
+![cactus](images/cactus.png)
 ## 1.7 정리
 > **이번 장에서 배운 내용**
 * 파이썬은 간단하고 익히기 쉬운 프로그래밍 언어다.
