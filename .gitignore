@@ -1,3 +1,5 @@
 .DS_Store
 __pycache__/
 deep_learning_images/
+dataset/
+common/
