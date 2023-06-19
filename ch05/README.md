@@ -80,3 +80,70 @@
 - [layer_naive](layer_naive.py)  
 ![fig5-17](images/fig5-17.png)  
 - [buy_apple_orange](buy_apple_orange.py)  
+## 5.5 활성화 함수 계층 구현하기
+### 5.5.1 ReLU 계층
+- 활성화 함수로 사용되는 ReLU의 수식은 다음과 같음  
+![e5.7](images/e5.7.png)  
+- x에 대한 y의 미분  
+![e5.8](images/e5.8.png)  
+- ReLU 계층의 계산 그래프  
+![fig5-18](images/fig5-18.png)  
+```python
+class Relu:
+    def __init__(self):
+        self.mask = None
+    
+    def forward(self, x):
+        self.mask = (x <= 0)
+        out = x.copy()
+        out[self.mask] = 0
+
+        return out
+
+    def backward(self, dout):
+        dout[self.mask] = 0
+        dx = dout
+
+        return dx
+```
+### 5.5.2 Sigmoid 계층
+- 시그모이드 함수는 다음 식을 의미하는 함수  
+![e5.9](images/e5.9.png)  
+- Sigmoid 계층의 계산 그래프(순전파)  
+![fig5-19](images/fig5-19.png)  
+- 역전파의 흐름을 오른쪽에서 왼쪽으로 한 단계씩 짚어봄
+- 1 단계
+- y = 1/x을 미분  
+![e5.10](images/e5.10.png)  
+![fig5-19(1)](images/fig5-19(1).png)  
+- 2 단계  
+![fig5-19(2)](images/fig5-19(2).png)  
+- 3 단계
+- y = exp(x) 미분  
+![e5.11](images/e5.11.png)  
+![fig5-19(3)](images/fig5-19(3).png)  
+- 4 단계
+- Sigmoid 계층의 계산 그래프  
+![fig5-20](images/fig5-20.png)  
+- Sigmoid 계층의 계산 그래프(간소화 버전)  
+![fig5-21](images/fig5-21.png)  
+![e5.12](images/e5.12.png)  
+- Sigmoid 계층의 역전파는 순전파의 출력(y)만으로 계산할 수 있음
+- Sigmoid 계층의 계산 그래프: 순전파의 출력 y만으로 역전파를 계산할 수 있음  
+![fig5-22](images/fig5-22.png)  
+```python
+class Sigmoid:
+  def __init__(self):
+    self.out = None
+  
+  def forward(self, x):
+    out = 1 / (1 + np.exp(-x))
+    self.out = out
+
+    return out
+  
+  def backward(self, dout):
+    dx = dout * (1.0 - self.out) * self.out
+    
+    return dx
+```
