@@ -67,3 +67,16 @@
 ![fig5-14](images/fig5-14.png)  
 - 사과와 귤 쇼핑의 역전파 예  
 ![fig5-15](images/fig5-15.png)  
+## 5.4 단순한 계층 구현하기
+### 5.4.1 곱셈 계층
+- 모든 계층은 forward()와 backward()라는 공통의 메서드(인터페이스)를 갖도록 구현
+- forward()는 순전파, backward()은 역전파를 처리
+- [layer_naive](layer_naive.py)  
+![fig5-16](images/fig5-16.png)  
+- [buy_apple](buy_apple.py)  
+- backward() 호출 순서는 forward() 때와는 반대
+- backward()가 받는 인수는 '순전파의 출력에 대한 미분'임에 주의
+### 5.4.2 덧셈 계층
+- [layer_naive](layer_naive.py)  
+![fig5-17](images/fig5-17.png)  
+- [buy_apple_orange](buy_apple_orange.py)  
